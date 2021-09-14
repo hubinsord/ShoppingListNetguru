@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="16dp"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iv_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shopping_cart_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/light_green_400"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv_list_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/light_green_400"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_item_counter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_cart"
+
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="dsadsadas" />
+
+        <TextView
+            android:id="@+id/tv_item_counter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/light_green_400"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_cart"
+            app:layout_constraintTop_toBottomOf="@id/tv_list_name"
+            android:text="5/24" />
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/iv_check"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:src="@drawable/check_not_done"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:tint="@color/light_green_400" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

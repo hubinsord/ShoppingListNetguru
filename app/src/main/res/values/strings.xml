@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ShoppingListNetguru</string>
+    <string name="tv_top_bar">Shopping List</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    ShoppingListsFragment    -->
+    <string name="shopping_list">Shopping list</string>
 </resources>

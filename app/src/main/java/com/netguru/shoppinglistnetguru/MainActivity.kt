@@ -2,10 +2,41 @@ package com.netguru.shoppinglistnetguru
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.databinding.DataBindingUtil
+import com.netguru.data.model.ShoppingItem
+import com.netguru.shoppinglistnetguru.databinding.ActivityMainBinding
+import com.netguru.shoppinglistnetguru.shoppinglistdetails.ShoppingListDetailsFragment
+import com.netguru.shoppinglistnetguru.shoppinglists.ShoppingListsAdapter
+import com.netguru.shoppinglistnetguru.shoppinglists.ShoppingListsFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ShoppingListsAdapter.Companion.ShoppingListAdapterListener {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+
+        setInitialFragment()
+    }
+
+    private fun setInitialFragment() {
+        val fragment = supportFragmentManager.findFragmentByTag(ShoppingListsFragment::class.java.name)
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container_view,
+                fragment ?: ShoppingListsFragment.newInstance(),
+                ShoppingListsFragment::class.java.name)
+            commit()
+        }
+    }
+
+    override fun onShoppingListClicked(list: List<ShoppingItem>) {
+        val fragment = supportFragmentManager.findFragmentByTag(ShoppingListDetailsFragment::class.java.name)
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container_view,
+                fragment ?: ShoppingListDetailsFragment.newInstance(list),
+                ShoppingListDetailsFragment::class.java.name)
+            commit()
+            addToBackStack(null)
+        }
     }
 }
