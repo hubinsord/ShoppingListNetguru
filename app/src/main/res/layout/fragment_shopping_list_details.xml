@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.93"
             android:src="@drawable/add_black"
-            app:tint = "@color/white"
+            app:tint="@color/white"
             android:contentDescription="@null" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

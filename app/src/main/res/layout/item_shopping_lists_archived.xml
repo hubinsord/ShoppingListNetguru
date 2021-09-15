@@ -23,7 +23,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/light_green_400"
+            app:tint="@color/grey_300"
             android:contentDescription="@null" />
 
         <TextView
@@ -31,36 +31,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textColor="@color/light_green_400"
+            android:textColor="@color/grey_300"
             android:textSize="16sp"
-            app:layout_constraintBottom_toTopOf="@id/tv_item_counter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_cart"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="Grocery" />
 
-        <TextView
-            android:id="@+id/tv_item_counter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textColor="@color/light_green_400"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_cart"
-            app:layout_constraintTop_toBottomOf="@id/tv_list_name"
-            android:text="5/24" />
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/iv_check"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:src="@drawable/check_not_done"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            app:tint="@color/light_green_400" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

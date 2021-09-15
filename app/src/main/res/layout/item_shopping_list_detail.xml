@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_check"
             app:layout_constraintStart_toEndOf="@id/iv_basket"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="dsadsadas" />
+            tools:text="Cheese" />
 
         <TextView
             android:id="@+id/tv_item_quantity"
