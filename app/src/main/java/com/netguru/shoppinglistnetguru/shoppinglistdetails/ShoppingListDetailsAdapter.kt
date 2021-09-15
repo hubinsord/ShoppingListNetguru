@@ -21,6 +21,7 @@ class ShoppingListDetailsAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.binding.apply {
             tvItemName.text = shoppingItems[position].name
+            tvItemQuantity.text = shoppingItems[position].quantity.toString()
         }
     }
 

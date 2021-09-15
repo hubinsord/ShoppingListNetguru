@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.netguru.data.model.ShoppingItem
 import com.netguru.shoppinglistnetguru.databinding.FragmentShoppingListsBinding
@@ -15,6 +16,8 @@ import java.lang.ClassCastException
 class ShoppingListsFragment : Fragment(){
     private lateinit var binding: FragmentShoppingListsBinding
     private lateinit var listener: ShoppingListsAdapter.Companion.ShoppingListAdapterListener
+    private lateinit var viewModel: ShoppingListsViewModel
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -32,17 +35,34 @@ class ShoppingListsFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var shoppingLists = arrayListOf<List<ShoppingItem>>(
-            arrayListOf(ShoppingItem("water", 5), ShoppingItem("bread", 2)),
-            arrayListOf(ShoppingItem("water", 4), ShoppingItem("bread", 1))
-        )
-        val adapter = ShoppingListsAdapter(shoppingLists, listener)
-        binding.rvShoppingLists.adapter = adapter
-        binding.rvShoppingLists.layoutManager = LinearLayoutManager(view.context)
+        initViewModel()
+        initObservers()
+        binding.fabAddNewList.setOnClickListener { fabAddNewListClicked() }
+    }
+
+    private fun initObservers() {
+        viewModel.shoppingListsLiveData.observe(viewLifecycleOwner, { litOfShoppingLists ->
+            val adapter = ShoppingListsAdapter(litOfShoppingLists ?: listOf(), listener)
+            binding.rvShoppingLists.adapter = adapter
+            binding.rvShoppingLists.layoutManager = LinearLayoutManager(requireContext())
+        })
+    }
+
+    private fun fabAddNewListClicked() {
+        val testList = mutableListOf(ShoppingItem("dsadasd", 10))
+        viewModel.addNewShoppingList(testList)
+    }
+
+    private fun initViewModel() {
+        val viewModelFactory = ShoppingListsViewModelFactory()
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(ShoppingListsViewModel::class.java)
+    }
+
+    fun addNewShoppingList(newShoppingList: MutableList<ShoppingItem>) {
+        viewModel.addNewShoppingList(newShoppingList)
     }
 
     companion object {
         fun newInstance() = ShoppingListsFragment()
     }
-
 }
