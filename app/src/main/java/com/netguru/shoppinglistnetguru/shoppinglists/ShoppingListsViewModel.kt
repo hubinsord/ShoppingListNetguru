@@ -7,7 +7,7 @@ import com.netguru.data.model.ShoppingList
 
 class ShoppingListsViewModel : ViewModel(){
     private var shoppingLists = mutableListOf<ShoppingList>()
-     var shoppingListsLiveData = MutableLiveData<MutableList<ShoppingList>>()
+    var shoppingListsLiveData = MutableLiveData<MutableList<ShoppingList>>()
 
     private fun updateShoppingItems(shoppingList: MutableList<ShoppingList>){
        this.shoppingListsLiveData.postValue(shoppingList)

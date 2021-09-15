@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tv_top_bar">Lista zakupów</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    ShoppingListsFragment    -->
+    <string name="tv_shopping_list">Lista zakupów</string>
+    <string name="toast_list_added">Dodano listę zakupów</string>
+    <string name="toast_list_name_empty">Lista nie może mieć pustej nazwy!</string>
+    <string name="et_hint_add_list">Praca, spożywcze, owoce lub…?</string>
+    <string name="dialog_add_list_title">Nowa lista zakupów</string>
+    <string name="dialog_add_list_message">Wymyśl chwytliwą nazwę i podaj ją poniżej</string>
+    <string name="dialog_add_list_name_positive">Dodaj</string>
+    <string name="dialog_add_list_name_negative">Anuluj</string>
+
+    <!--    ShoppingListsArchivedFragment    -->
+    <string name="tv_archive_shopping_list_description">Poniższe listy nie mogą być edytowane</string>
+</resources>

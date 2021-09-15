@@ -1,9 +1,19 @@
 <resources>
-    <string name="app_name">N Shopper</string>
+    <string name="app_name" translatable="false">N Shopper</string>
     <string name="tv_top_bar">Shopping List</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--    ShoppingListsFragment    -->
-    <string name="shopping_list">Shopping list</string>
+    <string name="tv_shopping_list">Shopping list</string>
+    <string name="toast_list_added">Shopping list added</string>
+    <string name="toast_list_name_empty">The list cannot have empty name!</string>
+    <string name="et_hint_add_list">Grocery, work, fruits or…?</string>
+    <string name="dialog_add_list_title">New shopping list</string>
+    <string name="dialog_add_list_message">Find a catchy name and write it here</string>
+    <string name="dialog_add_list_name_positive">Add</string>
+    <string name="dialog_add_list_name_negative">Cancel</string>
+
+    <!--    ShoppingListsArchivedFragment    -->
+    <string name="tv_archive_shopping_list_description">Lists below cannot be edited</string>
 </resources>

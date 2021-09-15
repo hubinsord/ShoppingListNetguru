@@ -10,8 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        android:background="@color/white">
+        android:background="@color/white"
+        tools:context=".MainActivity">
 
         <TextView
             android:id="@+id/tv_top_bar"
@@ -20,6 +20,7 @@
             android:background="@color/light_green_400"
             android:gravity="center_vertical"
             android:paddingStart="30dp"
+            android:paddingEnd="0dp"
             android:text="@string/tv_top_bar"
             android:textColor="@color/white"
             android:textSize="18sp"
