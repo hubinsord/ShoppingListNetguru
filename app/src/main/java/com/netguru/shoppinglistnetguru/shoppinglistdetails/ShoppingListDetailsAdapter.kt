@@ -3,11 +3,11 @@ package com.netguru.shoppinglistnetguru.shoppinglistdetails
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.netguru.data.model.ShoppingItem
+import com.netguru.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ItemShoppingListDetailBinding
 
 class ShoppingListDetailsAdapter(
-    private val shoppingItems: List<ShoppingItem>
+    private val shoppingList: ShoppingList
 ): RecyclerView.Adapter<ShoppingListDetailsAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(val binding: ItemShoppingListDetailBinding) : RecyclerView.ViewHolder(binding.root)
@@ -20,13 +20,13 @@ class ShoppingListDetailsAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.binding.apply {
-            tvItemName.text = shoppingItems[position].name
-            tvItemQuantity.text = shoppingItems[position].quantity.toString()
+            tvItemName.text = shoppingList.items[position].name
+            tvItemQuantity.text = shoppingList.items[position].quantity.toString()
         }
     }
 
     override fun getItemCount(): Int {
-        return shoppingItems.size
+        return shoppingList.items.size
     }
 
 }

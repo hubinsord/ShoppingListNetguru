@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.netguru.data.model.ShoppingItem
+import com.netguru.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ActivityMainBinding
 import com.netguru.shoppinglistnetguru.shoppinglistdetails.ShoppingListDetailsFragment
 import com.netguru.shoppinglistnetguru.shoppinglists.ShoppingListsAdapter
@@ -36,11 +37,11 @@ class MainActivity : AppCompatActivity(), ShoppingListsAdapter.Companion.Shoppin
         }
     }
 
-    override fun onShoppingListClicked(list: List<ShoppingItem>) {
+    override fun onShoppingListClicked(shoppingList: ShoppingList) {
         val fragment = supportFragmentManager.findFragmentByTag(ShoppingListDetailsFragment::class.java.name)
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container_view,
-                fragment ?: ShoppingListDetailsFragment.newInstance(list),
+                fragment ?: ShoppingListDetailsFragment.newInstance(shoppingList),
                 ShoppingListDetailsFragment::class.java.name)
             commit()
             addToBackStack(null)

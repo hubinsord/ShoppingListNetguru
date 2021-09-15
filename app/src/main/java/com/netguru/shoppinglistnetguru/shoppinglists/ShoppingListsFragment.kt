@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.netguru.data.model.ShoppingItem
+import com.netguru.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.FragmentShoppingListsBinding
 import java.lang.ClassCastException
 
@@ -41,8 +42,8 @@ class ShoppingListsFragment : Fragment(){
     }
 
     private fun initObservers() {
-        viewModel.shoppingListsLiveData.observe(viewLifecycleOwner, { litOfShoppingLists ->
-            val adapter = ShoppingListsAdapter(litOfShoppingLists ?: listOf(), listener)
+        viewModel.shoppingListsLiveData.observe(viewLifecycleOwner, { shoppingLists ->
+            val adapter = ShoppingListsAdapter(shoppingLists, listener)
             binding.rvShoppingLists.adapter = adapter
             binding.rvShoppingLists.layoutManager = LinearLayoutManager(requireContext())
         })
@@ -50,16 +51,13 @@ class ShoppingListsFragment : Fragment(){
 
     private fun fabAddNewListClicked() {
         val testList = mutableListOf(ShoppingItem("dsadasd", 10))
-        viewModel.addNewShoppingList(testList)
+        val shoppingList = ShoppingList("lista testowa", testList)
+        viewModel.addNewShoppingList(shoppingList)
     }
 
     private fun initViewModel() {
         val viewModelFactory = ShoppingListsViewModelFactory()
         viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(ShoppingListsViewModel::class.java)
-    }
-
-    fun addNewShoppingList(newShoppingList: MutableList<ShoppingItem>) {
-        viewModel.addNewShoppingList(newShoppingList)
     }
 
     companion object {
