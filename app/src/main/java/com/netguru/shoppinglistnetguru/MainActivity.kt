@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), ShoppingListsAdapter.Companion.Shoppin
     private fun setInitialFragment() {
         val fragment = supportFragmentManager.findFragmentByTag(ShoppingListsFragment::class.java.name)
         supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left, R.anim.anim_slide_in_right, R.anim.anim_slide_out_right)
             replace(R.id.fragment_container_view,
                 fragment ?: ShoppingListsFragment.newInstance(),
                 ShoppingListsFragment::class.java.name)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity(), ShoppingListsAdapter.Companion.Shoppin
     override fun onShoppingListClicked(shoppingList: ShoppingList) {
         val fragment = supportFragmentManager.findFragmentByTag(ShoppingListDetailsFragment::class.java.name)
         supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left, R.anim.anim_slide_in_right, R.anim.anim_slide_out_right)
             replace(R.id.fragment_container_view,
                 fragment ?: ShoppingListDetailsFragment.newInstance(shoppingList),
                 ShoppingListDetailsFragment::class.java.name)
