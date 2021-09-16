@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoppingListNetguru">
         <activity
-            android:name=".MainActivity"
+            android:name="com.netguru.shoppinglistnetguru.app.ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

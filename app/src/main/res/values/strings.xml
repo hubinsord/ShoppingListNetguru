@@ -3,6 +3,8 @@
     <string name="tv_top_bar">Shopping List</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_positive_add">Add</string>
+    <string name="dialog_negative_cancel">Cancel</string>
 
     <!--    ShoppingListsFragment    -->
     <string name="tv_shopping_list">Shopping list</string>
@@ -11,8 +13,15 @@
     <string name="et_hint_add_list">Grocery, work, fruits or…?</string>
     <string name="dialog_add_list_title">New shopping list</string>
     <string name="dialog_add_list_message">Find a catchy name and write it here</string>
-    <string name="dialog_add_list_name_positive">Add</string>
-    <string name="dialog_add_list_name_negative">Cancel</string>
+
+    <!--    ShoppingListDetail    -->
+    <string name="toast_product_added">Product added</string>
+    <string name="toast_product_name_empty">The product must not have an empty name or quantity!</string>
+    <string name="dialog_add_product_title">New product</string>
+    <string name="dialog_add_product_message">Enter product name</string>
+    <string name="et_hint_add_name_product">water, bread, apple…?</string>
+    <string name="et_hint_add_quantity_product">1, 2, 3…?</string>
+
 
     <!--    ShoppingListsArchivedFragment    -->
     <string name="tv_archive_shopping_list_description">Lists below cannot be edited</string>

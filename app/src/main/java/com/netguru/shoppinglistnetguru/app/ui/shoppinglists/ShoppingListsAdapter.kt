@@ -1,14 +1,13 @@
-package com.netguru.shoppinglistnetguru.shoppinglists
+package com.netguru.shoppinglistnetguru.app.ui.shoppinglists
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.netguru.data.model.ShoppingItem
-import com.netguru.data.model.ShoppingList
+import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ItemShoppingListsBinding
 
 class ShoppingListsAdapter(
-    private val shoppingLists: MutableList<ShoppingList>,
+    var shoppingLists: MutableList<ShoppingList>,
     private val listener: ShoppingListAdapterListener,
 ) : RecyclerView.Adapter<ShoppingListsAdapter.ItemViewHolder>() {
 
@@ -22,7 +21,7 @@ class ShoppingListsAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.binding.apply {
-            tvListName.text = "Shopping list"
+            tvListName.text = shoppingLists[position].name
             container.setOnClickListener {
                 listener.onShoppingListClicked(shoppingLists[position])
             }

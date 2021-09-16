@@ -1,13 +1,13 @@
-package com.netguru.shoppinglistnetguru.shoppinglistdetails
+package com.netguru.shoppinglistnetguru.app.ui.shoppinglistdetails
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.netguru.data.model.ShoppingList
+import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ItemShoppingListDetailBinding
 
 class ShoppingListDetailsAdapter(
-    private val shoppingList: ShoppingList
+    var shoppingList: ShoppingList
 ): RecyclerView.Adapter<ShoppingListDetailsAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(val binding: ItemShoppingListDetailBinding) : RecyclerView.ViewHolder(binding.root)

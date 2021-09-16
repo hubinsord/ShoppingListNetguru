@@ -1,4 +1,4 @@
-package com.netguru.shoppinglistnetguru
+package com.netguru.shoppinglistnetguru.app.ui.main
 
 import androidx.lifecycle.ViewModel
 

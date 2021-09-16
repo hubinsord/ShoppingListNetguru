@@ -1,4 +1,4 @@
-package com.netguru.data.model
+package com.netguru.shoppinglistnetguru.app.data.model
 
 data class ShoppingItem (
     val name: String,

@@ -3,6 +3,8 @@
     <string name="tv_top_bar">Lista zakupów</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_positive_add">Dodaj</string>
+    <string name="dialog_negative_cancel">Anuluj</string>
 
     <!--    ShoppingListsFragment    -->
     <string name="tv_shopping_list">Lista zakupów</string>
@@ -11,8 +13,14 @@
     <string name="et_hint_add_list">Praca, spożywcze, owoce lub…?</string>
     <string name="dialog_add_list_title">Nowa lista zakupów</string>
     <string name="dialog_add_list_message">Wymyśl chwytliwą nazwę i podaj ją poniżej</string>
-    <string name="dialog_add_list_name_positive">Dodaj</string>
-    <string name="dialog_add_list_name_negative">Anuluj</string>
+
+    <!--    ShoppingListDetail    -->
+    <string name="toast_product_added">Dodano produkt</string>
+    <string name="dialog_add_product_title">Nowy produkt</string>
+    <string name="toast_product_name_empty">Produkt nie może mieć pustej nazwy lub ilości!</string>
+    <string name="dialog_add_product_message">Wprowadź nazwę produktu</string>
+    <string name="et_hint_add_name_product">woda, chleb, jabłko…?</string>
+    <string name="et_hint_add_quantity_product">1, 2, 3…?</string>
 
     <!--    ShoppingListsArchivedFragment    -->
     <string name="tv_archive_shopping_list_description">Poniższe listy nie mogą być edytowane</string>

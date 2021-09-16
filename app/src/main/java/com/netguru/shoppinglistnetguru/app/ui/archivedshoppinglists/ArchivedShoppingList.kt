@@ -1,4 +1,4 @@
-package com.netguru.shoppinglistnetguru.archivedshoppinglists
+package com.netguru.shoppinglistnetguru.app.ui.archivedshoppinglists
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
