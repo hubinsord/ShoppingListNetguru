@@ -12,13 +12,6 @@ import com.netguru.shoppinglistnetguru.databinding.FragmentListsContainerBinding
 class ShopListsContainerFragment : Fragment() {
 
     private lateinit var binding: FragmentListsContainerBinding
-    private lateinit var viewModel: ShopListsContainerViewModel
-    private var adapter: ShopListsAdapter? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initViewModel()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,10 +25,6 @@ class ShopListsContainerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
-    }
-
-    private fun initViewModel() {
-        viewModel = ViewModelProvider(requireActivity()).get(ShopListsContainerViewModel::class.java)
     }
 
     private fun initViews() {
