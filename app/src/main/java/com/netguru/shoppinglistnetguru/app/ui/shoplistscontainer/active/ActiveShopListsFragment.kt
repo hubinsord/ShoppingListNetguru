@@ -1,9 +1,8 @@
-package com.netguru.shoppinglistnetguru.app.ui.shoppinglists
+package com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log.i
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +21,11 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 
 
-class ShoppingListsFragment : Fragment() {
+class ActiveShopListsFragment : Fragment() {
     private lateinit var binding: FragmentShoppingListsBinding
-    private lateinit var listener: ShoppingListsAdapter.Companion.ShoppingListAdapterListener
-    private lateinit var viewModel: ShoppingListsViewModel
-    private lateinit var adapter: ShoppingListsAdapter
+    private lateinit var listener: ActiveShopListsAdapter.Companion.ShoppingListAdapterListener
+    private lateinit var viewModel: ActiveShopListsViewModel
+    private lateinit var adapter: ActiveShopListsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,7 @@ class ShoppingListsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
-            listener = context as ShoppingListsAdapter.Companion.ShoppingListAdapterListener
+            listener = context as ActiveShopListsAdapter.Companion.ShoppingListAdapterListener
         } catch (castException: ClassCastException) {
             throw NotImplementedError("class cast fail")
         }
@@ -49,11 +48,10 @@ class ShoppingListsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        i("TEST", "TEST onViewCreated")
         postponeEnterTransition()
         initObservers()
         initViews()
-        viewModel.getAllShoppingLists(0)
+        viewModel.getAllShoppingLists(false)
         initListeners()
     }
 
@@ -61,14 +59,13 @@ class ShoppingListsFragment : Fragment() {
         viewModel = ViewModelProvider
             .AndroidViewModelFactory
             .getInstance(requireActivity().application)
-            .create(ShoppingListsViewModel::class.java)
+            .create(ActiveShopListsViewModel::class.java)
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initObservers() {
         viewModel.shoppingListsLiveData.observe(viewLifecycleOwner, { shoppingLists ->
             if (shoppingLists.isNotEmpty()) {
-                i("TEST", "TEST init obs")
                 adapter.shoppingLists = shoppingLists
                 adapter.notifyDataSetChanged()
             }
@@ -76,7 +73,7 @@ class ShoppingListsFragment : Fragment() {
     }
 
     private fun initViews() {
-        adapter = ShoppingListsAdapter(mutableListOf(), listener)
+        adapter = ActiveShopListsAdapter(mutableListOf(), listener)
         binding.rvShoppingLists.adapter = adapter
         binding.rvShoppingLists.layoutManager = LinearLayoutManager(requireContext())
         binding.rvShoppingLists.viewTreeObserver.addOnPreDrawListener {
@@ -126,6 +123,6 @@ class ShoppingListsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = ShoppingListsFragment()
+        fun newInstance() = ActiveShopListsFragment()
     }
 }

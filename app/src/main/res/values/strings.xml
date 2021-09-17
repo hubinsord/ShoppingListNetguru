@@ -6,6 +6,10 @@
     <string name="dialog_positive_add">Add</string>
     <string name="dialog_negative_cancel">Cancel</string>
 
+    <!--    ShopListsContainer    -->
+    <string name="tv_tab_list_active">Active</string>
+    <string name="tv_tab_list_archived">Archived</string>
+
     <!--    ShoppingListsFragment    -->
     <string name="tv_shopping_list">Shopping list</string>
     <string name="toast_list_added">Shopping list added</string>
@@ -20,8 +24,8 @@
     <string name="toast_product_name_empty">The product must not have an empty name or quantity!</string>
     <string name="dialog_add_product_title">New product</string>
     <string name="dialog_add_product_message">Enter product name</string>
-    <string name="et_hint_add_name_product">water, bread, apple…?</string>
-    <string name="et_hint_add_quantity_product">1, 2, 3…?</string>
+    <string name="et_hint_add_name_product">Eggs</string>
+    <string name="et_hint_add_quantity_product">20</string>
     <string name="tv_top_bar_your_list">Your list</string>
 
     <!--    ShoppingListsArchivedFragment    -->

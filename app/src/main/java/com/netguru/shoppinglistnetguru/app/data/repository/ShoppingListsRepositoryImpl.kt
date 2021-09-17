@@ -27,12 +27,10 @@ class ShoppingListsRepositoryImpl(application: Application) : ShoppingListReposi
         shoppingListsDao.delete(shoppingList)
     }
 
-    override suspend fun getAllShoppingLists(isArchived: Int): List<ShoppingList> =
+    override suspend fun getAllShoppingLists(isArchived: Boolean): List<ShoppingList> =
         shoppingListsDao.getAllShoppingLists(isArchived)
 
     fun deleteAllRecords() = CoroutineScope(Dispatchers.IO).launch {
         shoppingListsDao.deleteAllRecords()
     }
-
-
 }

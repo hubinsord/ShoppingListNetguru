@@ -1,4 +1,4 @@
-package com.netguru.shoppinglistnetguru.app.ui.shoppinglists
+package com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ItemShoppingListsBinding
 
-class ShoppingListsAdapter(
+class ActiveShopListsAdapter(
     var shoppingLists: MutableList<ShoppingList>,
     private val listener: ShoppingListAdapterListener,
-) : RecyclerView.Adapter<ShoppingListsAdapter.ItemViewHolder>() {
+) : RecyclerView.Adapter<ActiveShopListsAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(val binding: ItemShoppingListsBinding) : RecyclerView.ViewHolder(binding.root)
 

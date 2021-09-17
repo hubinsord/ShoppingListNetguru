@@ -6,6 +6,10 @@
     <string name="dialog_positive_add">Dodaj</string>
     <string name="dialog_negative_cancel">Anuluj</string>
 
+    <!--    ShopListsContainer    -->
+    <string name="tv_tab_list_active">Aktywne</string>
+    <string name="tv_tab_list_archived">Zarchiwizowane</string>
+
     <!--    ShoppingListsFragment    -->
     <string name="tv_shopping_list">Lista zakupów</string>
     <string name="toast_list_added">Dodano listę zakupów</string>

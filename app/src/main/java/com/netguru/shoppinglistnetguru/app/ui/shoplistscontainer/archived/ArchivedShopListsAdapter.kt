@@ -1,4 +1,4 @@
-package com.netguru.shoppinglistnetguru.app.ui.archivedshoppinglists
+package com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.archived
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ItemShoppingListsArchivedBinding
 
-class ArchivedShoppingListsAdapter(var archivedShoppingLists: MutableList<ShoppingList>): RecyclerView.Adapter<ArchivedShoppingListsAdapter.ItemViewHolder>(){
+class ArchivedShopListsAdapter(var archivedShoppingLists: MutableList<ShoppingList>): RecyclerView.Adapter<ArchivedShopListsAdapter.ItemViewHolder>(){
 
     inner class ItemViewHolder(val binding: ItemShoppingListsArchivedBinding ) : RecyclerView.ViewHolder(binding.root)
 

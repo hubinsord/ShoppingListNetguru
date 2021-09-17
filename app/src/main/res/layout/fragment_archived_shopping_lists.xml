@@ -3,15 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".app.ui.shoppinglists.ShoppingListsFragment">
+        tools:context=".app.ui.shoplistscontainer.active.ActiveShopListsFragment">
 
         <TextView
             android:id="@+id/tv_description"

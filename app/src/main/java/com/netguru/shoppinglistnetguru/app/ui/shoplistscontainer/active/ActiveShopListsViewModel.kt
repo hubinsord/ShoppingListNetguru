@@ -1,4 +1,4 @@
-package com.netguru.shoppinglistnetguru.app.ui.shoppinglists
+package com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active
 
 import android.app.Application
 import androidx.lifecycle.*
@@ -6,7 +6,7 @@ import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.app.data.repository.ShoppingListsRepositoryImpl
 import kotlinx.coroutines.launch
 
-class ShoppingListsViewModel(application: Application) : AndroidViewModel(application) {
+class ActiveShopListsViewModel(application: Application) : AndroidViewModel(application) {
     var shoppingListsLiveData = MutableLiveData<MutableList<ShoppingList>>()
 
     private var shoppingListsRepository: ShoppingListsRepositoryImpl =
@@ -22,7 +22,7 @@ class ShoppingListsViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
-    fun getAllShoppingLists(isArchived: Int) {
+    fun getAllShoppingLists(isArchived: Boolean) {
         viewModelScope.launch {
             val data = shoppingListsRepository.getAllShoppingLists(isArchived)
             shoppingListsLiveData.postValue(data.toMutableList())
