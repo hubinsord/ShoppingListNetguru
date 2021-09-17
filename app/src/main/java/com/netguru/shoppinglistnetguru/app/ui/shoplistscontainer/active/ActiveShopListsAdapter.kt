@@ -3,6 +3,7 @@ package com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.netguru.shoppinglistnetguru.R
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.databinding.ItemShoppingListsBinding
 
@@ -20,10 +21,14 @@ class ActiveShopListsAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        val list = shoppingLists[position]
         holder.binding.apply {
-            tvListName.text = shoppingLists[position].name
+            tvListName.text = list.name
+            val products = list.items
+            val checkedProducts = products.filter { it.isItemChecked }.size
+            tvItemCounter.text = this.root.context.getString(R.string.item_counter, checkedProducts, products.size)
             container.setOnClickListener {
-                listener.onShoppingListClicked(shoppingLists[position])
+                listener.onShoppingListClicked(list)
             }
         }
     }

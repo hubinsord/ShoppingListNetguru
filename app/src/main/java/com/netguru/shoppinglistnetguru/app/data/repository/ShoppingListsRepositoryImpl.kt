@@ -18,7 +18,7 @@ class ShoppingListsRepositoryImpl(application: Application) : ShoppingListReposi
     override suspend fun insertShoppingList(shoppingList: ShoppingList) =
         shoppingListsDao.insert(shoppingList)
 
-    override fun updateShoppingList(shoppingList: ShoppingList) =
+    override suspend fun updateShoppingList(shoppingList: ShoppingList) =
         CoroutineScope(Dispatchers.IO).launch {
             shoppingListsDao.update(shoppingList)
         }

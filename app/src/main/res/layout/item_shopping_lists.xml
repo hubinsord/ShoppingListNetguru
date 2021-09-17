@@ -50,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_cart"
             app:layout_constraintTop_toBottomOf="@id/tv_list_name"
-            android:text="5/24" />
+            tools:text="5/24" />
 
         <!--        <ImageView-->
         <!--            android:id="@+id/iv_check"-->

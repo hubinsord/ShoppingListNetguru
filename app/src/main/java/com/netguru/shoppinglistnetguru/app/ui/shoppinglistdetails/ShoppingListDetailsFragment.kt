@@ -19,7 +19,7 @@ import com.netguru.shoppinglistnetguru.databinding.FragmentShoppingListDetailsBi
 
 class ShoppingListDetailsFragment(
     private var shoppingList: ShoppingList
-) : Fragment(){
+) : Fragment(), ShoppingListDetailsAdapter.Companion.ShoppingListDetailAdapterListener {
 
     private lateinit var binding: FragmentShoppingListDetailsBinding
     private lateinit var viewModel: ShoppingListDetailsViewModel
@@ -29,7 +29,7 @@ class ShoppingListDetailsFragment(
     override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
-            listener = activity as ShoppingListDetailsFragmentListener
+            listener = context as ShoppingListDetailsFragmentListener
         } catch (castException: ClassCastException) {
             throw NotImplementedError("class cast failed")
         }
@@ -51,7 +51,10 @@ class ShoppingListDetailsFragment(
         initObservers()
         initViews()
         initListeners()
+    }
 
+    override fun onProductCheckedChanged(product: ShoppingItem, position: Int) {
+        viewModel.updateProduct(product, position)
     }
 
     private fun initViewModel() {
@@ -67,12 +70,13 @@ class ShoppingListDetailsFragment(
             if(shoppingList != null){
                 adapter.shoppingList = shoppingList
                 adapter.notifyDataSetChanged()
+                if(shoppingList.isArchived) listener.onListArchived()
             }
         })
     }
 
     private fun initViews(){
-        adapter = ShoppingListDetailsAdapter(shoppingList)
+        adapter = ShoppingListDetailsAdapter(shoppingList, this)
         binding.rvItems.adapter = adapter
         binding.rvItems.layoutManager = LinearLayoutManager(requireContext())
     }
@@ -87,8 +91,8 @@ class ShoppingListDetailsFragment(
     }
 
     private fun btnArchiveListClicked() {
-       viewModel.archiveShoppingList()
-        listener.onBtnArchiveListClicked()
+        viewModel.archiveShoppingList()
+        showMessage(R.string.toast_list_archived)
     }
 
     @SuppressLint("InflateParams")
@@ -127,7 +131,7 @@ class ShoppingListDetailsFragment(
         fun newInstance(shoppingList: ShoppingList) = ShoppingListDetailsFragment(shoppingList)
 
         interface ShoppingListDetailsFragmentListener{
-            fun onBtnArchiveListClicked()
+            fun onListArchived()
         }
     }
 }

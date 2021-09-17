@@ -5,6 +5,6 @@ import kotlinx.coroutines.Job
 
 interface ShoppingListRepository {
     suspend fun insertShoppingList(shoppingList: ShoppingList): Long
-    fun updateShoppingList(shoppingList: ShoppingList): Job
+    suspend fun updateShoppingList(shoppingList: ShoppingList): Job
     suspend fun getAllShoppingLists(isArchived: Boolean): List<ShoppingList>
 }

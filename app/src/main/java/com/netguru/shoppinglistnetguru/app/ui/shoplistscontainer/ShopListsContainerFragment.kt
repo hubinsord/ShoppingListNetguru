@@ -9,11 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
 import com.netguru.shoppinglistnetguru.databinding.FragmentListsContainerBinding
 
-
 class ShopListsContainerFragment : Fragment() {
 
     private lateinit var binding: FragmentListsContainerBinding
     private lateinit var viewModel: ShopListsContainerViewModel
+    private var adapter: ShopListsAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class ShopListsContainerFragment : Fragment() {
     }
 
     private fun initViews() {
-        val adapter = ShopListsAdapter(requireActivity())
+        val adapter = ShopListsAdapter(this)
         binding.viewPager.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = getString(adapter.getItemNameRes(position))

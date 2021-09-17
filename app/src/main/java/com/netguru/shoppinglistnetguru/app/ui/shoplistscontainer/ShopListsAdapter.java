@@ -10,16 +10,12 @@ import com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active.ActiveSh
 import com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.archived.ArchivedShopListsFragment;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class ShopListsAdapter extends FragmentStateAdapter {
 
-    private final ArrayList<Fragment> fragmentList;
-
-    public ShopListsAdapter(@NonNull FragmentActivity fragmentActivity) {
-        super(fragmentActivity);
-        fragmentList = new ArrayList<>();
-        fragmentList.add(ActiveShopListsFragment.Companion.newInstance());
-        fragmentList.add(ArchivedShopListsFragment.Companion.newInstance());
+    public ShopListsAdapter(@NonNull Fragment fragment) {
+        super(fragment);
     }
 
     public Integer getItemNameRes(Integer position) {
@@ -29,11 +25,18 @@ public class ShopListsAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return fragmentList.get(position);
+        switch (position) {
+            case 0:
+                return ActiveShopListsFragment.Companion.newInstance();
+            case 1:
+                return ArchivedShopListsFragment.Companion.newInstance();
+            default:
+                throw new NoSuchElementException();
+        }
     }
 
     @Override
     public int getItemCount() {
-        return fragmentList.size();
+        return 2;
     }
 }

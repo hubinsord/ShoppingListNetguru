@@ -10,7 +10,7 @@ interface ShoppingListsDao {
     suspend fun insert(shoppingList: ShoppingList): Long
 
     @Update
-    fun update(shoppingList: ShoppingList)
+    suspend fun update(shoppingList: ShoppingList)
 
     @Delete
     fun delete(shoppingList: ShoppingList)

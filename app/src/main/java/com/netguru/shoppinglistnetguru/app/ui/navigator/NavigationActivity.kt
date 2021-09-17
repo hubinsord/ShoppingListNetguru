@@ -51,7 +51,7 @@ class NavigationActivity : AppCompatActivity(),
         }
     }
 
-    override fun onBtnArchiveListClicked() {
+    override fun onListArchived() {
         supportFragmentManager.popBackStack()
     }
 }

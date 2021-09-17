@@ -33,5 +33,6 @@
     <string name="tl_tab_1">Tab 1</string>
     <string name="tl_tab_2">Tab 2</string>
     <string name="btn_archive">archivize list</string>
+    <string name="toast_list_archived">Twoja lista została zarchiwizowana</string>
 
 </resources>

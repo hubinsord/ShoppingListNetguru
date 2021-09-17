@@ -51,8 +51,12 @@ class ActiveShopListsFragment : Fragment() {
         postponeEnterTransition()
         initObservers()
         initViews()
-        viewModel.getAllShoppingLists(false)
         initListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllShoppingLists(false)
     }
 
     private fun initViewModel() {
@@ -65,10 +69,8 @@ class ActiveShopListsFragment : Fragment() {
     @SuppressLint("NotifyDataSetChanged")
     private fun initObservers() {
         viewModel.shoppingListsLiveData.observe(viewLifecycleOwner, { shoppingLists ->
-            if (shoppingLists.isNotEmpty()) {
                 adapter.shoppingLists = shoppingLists
                 adapter.notifyDataSetChanged()
-            }
         })
     }
 
