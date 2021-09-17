@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
-import com.netguru.shoppinglistnetguru.R
-import com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.archived.ArchivedShopListsFragment
-import com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active.ActiveShopListsFragment
 import com.netguru.shoppinglistnetguru.databinding.FragmentListsContainerBinding
 
 
@@ -42,16 +39,10 @@ class ShopListsContainerFragment : Fragment() {
     }
 
     private fun initViews() {
-        val fragmentList = arrayListOf(
-            ActiveShopListsFragment.newInstance(),
-            ArchivedShopListsFragment.newInstance()
-        )
-        binding.viewPager.adapter = ViewPagerAdapter(requireActivity(), fragmentList)
+        val adapter = ShopListsAdapter(requireActivity())
+        binding.viewPager.adapter = adapter
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            when (position) {
-                0 -> tab.text = getString(R.string.tv_tab_list_active)
-                1 -> tab.text = getString(R.string.tv_tab_list_archived)
-            }
+            tab.text = getString(adapter.getItemNameRes(position))
         }.attach()
     }
 
