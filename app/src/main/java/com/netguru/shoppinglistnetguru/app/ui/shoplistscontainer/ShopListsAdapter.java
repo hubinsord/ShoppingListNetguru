@@ -23,14 +23,7 @@ public class ShopListsAdapter extends FragmentStateAdapter {
     }
 
     public Integer getItemNameRes(Integer position) {
-        switch (position) {
-            case 0:
-                return R.string.tv_tab_list_active;
-            case 1:
-                return R.string.tv_tab_list_archived;
-            default:
-                return -1;
-        }
+        return ShopListsNameResolver.INSTANCE.getItemNameRes(position);
     }
 
     @NonNull
