@@ -9,7 +9,7 @@ import com.netguru.shoppinglistnetguru.app.data.model.converter.ShoppingItemConv
 import com.netguru.shoppinglistnetguru.app.data.dao.ShoppingListsDao
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 
-@Database(entities = [ShoppingList::class], version = 1, exportSchema = true)
+@Database(entities = [ShoppingList::class], version = 2, exportSchema = true)
 @TypeConverters(ShoppingItemConverters::class)
 abstract class ShoppingListsDatabase : RoomDatabase() {
     abstract fun shoppingListDao(): ShoppingListsDao
@@ -19,10 +19,7 @@ abstract class ShoppingListsDatabase : RoomDatabase() {
 
         fun getInstance(context: Context): ShoppingListsDatabase? {
             if (instance == null) {
-                instance = Room.databaseBuilder(
-                    context,
-                    ShoppingListsDatabase::class.java,
-                    "shopping_lists_table")
+                instance = Room.databaseBuilder(context, ShoppingListsDatabase::class.java, "shopping_lists_table")
                     .fallbackToDestructiveMigration()
                     .build()
             }

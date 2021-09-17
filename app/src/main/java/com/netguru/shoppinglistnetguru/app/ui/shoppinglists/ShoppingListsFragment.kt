@@ -53,7 +53,7 @@ class ShoppingListsFragment : Fragment() {
         postponeEnterTransition()
         initObservers()
         initViews()
-        viewModel.getAllShoppingLists()
+        viewModel.getAllShoppingLists(0)
         initListeners()
     }
 

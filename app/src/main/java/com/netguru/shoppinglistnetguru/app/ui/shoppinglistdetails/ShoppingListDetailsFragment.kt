@@ -1,6 +1,7 @@
 package com.netguru.shoppinglistnetguru.app.ui.shoppinglistdetails
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,6 +24,16 @@ class ShoppingListDetailsFragment(
     private lateinit var binding: FragmentShoppingListDetailsBinding
     private lateinit var viewModel: ShoppingListDetailsViewModel
     private lateinit var adapter: ShoppingListDetailsAdapter
+    private lateinit var listener: ShoppingListDetailsFragmentListener
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = activity as ShoppingListDetailsFragmentListener
+        } catch (castException: ClassCastException) {
+            throw NotImplementedError("class cast failed")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +51,7 @@ class ShoppingListDetailsFragment(
         initObservers()
         initViews()
         initListeners()
+
     }
 
     private fun initViewModel() {
@@ -67,10 +79,16 @@ class ShoppingListDetailsFragment(
 
     private fun initListeners() {
         binding.fabAddNewItem.setOnClickListener { fabAddNewItemClicked() }
+        binding.btnArchiveList.setOnClickListener { btnArchiveListClicked() }
     }
 
     private fun fabAddNewItemClicked() {
         showListNameDialog()
+    }
+
+    private fun btnArchiveListClicked() {
+       viewModel.archiveShoppingList()
+        listener.onBtnArchiveListClicked()
     }
 
     @SuppressLint("InflateParams")
@@ -107,5 +125,9 @@ class ShoppingListDetailsFragment(
 
         @JvmStatic
         fun newInstance(shoppingList: ShoppingList) = ShoppingListDetailsFragment(shoppingList)
+
+        interface ShoppingListDetailsFragmentListener{
+            fun onBtnArchiveListClicked()
+        }
     }
 }

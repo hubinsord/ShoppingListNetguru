@@ -3,14 +3,14 @@ package com.netguru.shoppinglistnetguru.app.ui.shoppinglists
 import android.app.Application
 import androidx.lifecycle.*
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
-import com.netguru.shoppinglistnetguru.app.data.repository.ShoppingListsRepository
+import com.netguru.shoppinglistnetguru.app.data.repository.ShoppingListsRepositoryImpl
 import kotlinx.coroutines.launch
 
 class ShoppingListsViewModel(application: Application) : AndroidViewModel(application) {
     var shoppingListsLiveData = MutableLiveData<MutableList<ShoppingList>>()
 
-    private var shoppingListsRepository: ShoppingListsRepository =
-        ShoppingListsRepository(application)
+    private var shoppingListsRepository: ShoppingListsRepositoryImpl =
+        ShoppingListsRepositoryImpl(application)
 
     fun addNewShoppingList(newShoppingList: ShoppingList) {
         viewModelScope.launch {
@@ -22,9 +22,9 @@ class ShoppingListsViewModel(application: Application) : AndroidViewModel(applic
         }
     }
 
-    fun getAllShoppingLists() {
+    fun getAllShoppingLists(isArchived: Int) {
         viewModelScope.launch {
-            val data = shoppingListsRepository.getAllShoppingLists()
+            val data = shoppingListsRepository.getAllShoppingLists(isArchived)
             shoppingListsLiveData.postValue(data.toMutableList())
         }
     }

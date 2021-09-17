@@ -4,10 +4,10 @@ import android.app.Application
 import com.netguru.shoppinglistnetguru.app.data.dao.ShoppingListsDao
 import com.netguru.shoppinglistnetguru.app.data.db.ShoppingListsDatabase
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
-import com.netguru.shoppinglistnetguru.app.domain.IShoppingListRepository
+import com.netguru.shoppinglistnetguru.app.domain.ShoppingListRepository
 import kotlinx.coroutines.*
 
-class ShoppingListsRepository(application: Application) : IShoppingListRepository {
+class ShoppingListsRepositoryImpl(application: Application) : ShoppingListRepository {
     private var shoppingListsDao: ShoppingListsDao
 
     init {
@@ -27,10 +27,12 @@ class ShoppingListsRepository(application: Application) : IShoppingListRepositor
         shoppingListsDao.delete(shoppingList)
     }
 
-    override suspend fun getAllShoppingLists(): List<ShoppingList> =
-        shoppingListsDao.getAllShoppingLists()
+    override suspend fun getAllShoppingLists(isArchived: Int): List<ShoppingList> =
+        shoppingListsDao.getAllShoppingLists(isArchived)
 
     fun deleteAllRecords() = CoroutineScope(Dispatchers.IO).launch {
         shoppingListsDao.deleteAllRecords()
     }
+
+
 }

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">N Shopper</string>
-    <string name="tv_top_bar">Shopping List</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dialog_positive_add">Add</string>
@@ -13,6 +13,7 @@
     <string name="et_hint_add_list">Grocery, work, fruits or…?</string>
     <string name="dialog_add_list_title">New shopping list</string>
     <string name="dialog_add_list_message">Find a catchy name and write it here</string>
+    <string name="tv_top_bar_shopping_list">Shopping lists</string>
 
     <!--    ShoppingListDetail    -->
     <string name="toast_product_added">Product added</string>
@@ -21,8 +22,11 @@
     <string name="dialog_add_product_message">Enter product name</string>
     <string name="et_hint_add_name_product">water, bread, apple…?</string>
     <string name="et_hint_add_quantity_product">1, 2, 3…?</string>
-
+    <string name="tv_top_bar_your_list">Your list</string>
 
     <!--    ShoppingListsArchivedFragment    -->
     <string name="tv_archive_shopping_list_description">Lists below cannot be edited</string>
+    <string name="tl_tab_1">Tab 1</string>
+    <string name="tl_tab_2">Tab 2</string>
+    <string name="btn_archive">archive list</string>
 </resources>

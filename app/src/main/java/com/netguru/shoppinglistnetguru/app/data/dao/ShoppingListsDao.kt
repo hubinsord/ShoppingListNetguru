@@ -15,9 +15,11 @@ interface ShoppingListsDao {
     @Delete
     fun delete(shoppingList: ShoppingList)
 
-    @Query("SELECT * FROM shopping_lists_table")
-    suspend fun getAllShoppingLists(): List<ShoppingList>
+    @Query("SELECT * FROM shopping_lists_table WHERE is_archived = :isArchived")
+    suspend fun getAllShoppingLists(isArchived: Int): List<ShoppingList>
 
     @Query("DELETE  FROM shopping_lists_table " )
     fun deleteAllRecords()
+
+
 }
