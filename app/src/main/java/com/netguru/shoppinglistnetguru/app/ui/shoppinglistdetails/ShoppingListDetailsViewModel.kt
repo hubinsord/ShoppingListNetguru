@@ -14,7 +14,7 @@ class ShoppingListDetailsViewModel(application: Application) : AndroidViewModel(
     var shoppingListLiveData = MutableLiveData<ShoppingList>()
     private lateinit var shoppingList: ShoppingList
 
-    private var shoppingListsRepository: ShoppingListsRepositoryImpl =
+    private val shoppingListsRepository: ShoppingListsRepositoryImpl =
         ShoppingListsRepositoryImpl(application)
 
     fun updateShoppingList(shoppingList: ShoppingList) {

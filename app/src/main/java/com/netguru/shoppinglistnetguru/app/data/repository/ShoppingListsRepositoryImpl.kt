@@ -1,19 +1,14 @@
 package com.netguru.shoppinglistnetguru.app.data.repository
 
-import android.app.Application
 import com.netguru.shoppinglistnetguru.app.data.dao.ShoppingListsDao
-import com.netguru.shoppinglistnetguru.app.data.db.ShoppingListsDatabase
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.app.domain.ShoppingListRepository
 import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class ShoppingListsRepositoryImpl(application: Application) : ShoppingListRepository {
-    private var shoppingListsDao: ShoppingListsDao
 
-    init {
-        val database = ShoppingListsDatabase.getInstance(application.applicationContext)
-        shoppingListsDao = database!!.shoppingListDao()
-    }
+class ShoppingListsRepositoryImpl @Inject constructor(private val shoppingListsDao: ShoppingListsDao) :
+    ShoppingListRepository {
 
     override suspend fun insertShoppingList(shoppingList: ShoppingList) =
         shoppingListsDao.insert(shoppingList)

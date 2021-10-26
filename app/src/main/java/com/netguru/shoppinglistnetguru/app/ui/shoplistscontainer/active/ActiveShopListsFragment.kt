@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
@@ -19,18 +18,15 @@ import com.netguru.shoppinglistnetguru.databinding.FragmentShoppingListsBinding
 import java.lang.ClassCastException
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ActiveShopListsFragment : Fragment() {
     private lateinit var binding: FragmentShoppingListsBinding
     private lateinit var listener: ActiveShopListsAdapter.Companion.ShoppingListAdapterListener
-    private lateinit var viewModel: ActiveShopListsViewModel
+    private val viewModel: ActiveShopListsViewModel by viewModels()
     private lateinit var adapter: ActiveShopListsAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initViewModel()
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -57,13 +53,6 @@ class ActiveShopListsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.getAllShoppingLists(false)
-    }
-
-    private fun initViewModel() {
-        viewModel = ViewModelProvider
-            .AndroidViewModelFactory
-            .getInstance(requireActivity().application)
-            .create(ActiveShopListsViewModel::class.java)
     }
 
     @SuppressLint("NotifyDataSetChanged")

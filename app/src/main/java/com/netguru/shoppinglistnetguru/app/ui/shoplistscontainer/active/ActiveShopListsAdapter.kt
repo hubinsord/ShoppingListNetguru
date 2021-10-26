@@ -12,7 +12,12 @@ class ActiveShopListsAdapter(
     private val listener: ShoppingListAdapterListener,
 ) : RecyclerView.Adapter<ActiveShopListsAdapter.ItemViewHolder>() {
 
-    inner class ItemViewHolder(val binding: ItemShoppingListsBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ItemViewHolder(val binding: ItemShoppingListsBinding) : RecyclerView.ViewHolder(binding.root){
+//        init {
+//            val list = shoppingLists
+//            binding.container.setOnClickListener { listener.onShoppingListClicked(list) }
+//        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)

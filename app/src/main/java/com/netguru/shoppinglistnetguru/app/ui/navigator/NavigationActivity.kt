@@ -9,7 +9,10 @@ import com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.ShopListsContai
 import com.netguru.shoppinglistnetguru.databinding.ActivityMainBinding
 import com.netguru.shoppinglistnetguru.app.ui.shoppinglistdetails.ShoppingListDetailsFragment
 import com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active.ActiveShopListsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class NavigationActivity : AppCompatActivity(),
     ActiveShopListsAdapter.Companion.ShoppingListAdapterListener,
     ShoppingListDetailsFragment.Companion.ShoppingListDetailsFragmentListener {

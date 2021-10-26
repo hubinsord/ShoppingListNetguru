@@ -1,6 +1,5 @@
 package com.netguru.shoppinglistnetguru.app.ui.shoppinglistdetails
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

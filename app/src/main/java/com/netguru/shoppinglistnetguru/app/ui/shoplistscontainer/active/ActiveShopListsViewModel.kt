@@ -1,16 +1,16 @@
 package com.netguru.shoppinglistnetguru.app.ui.shoplistscontainer.active
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.netguru.shoppinglistnetguru.app.data.model.ShoppingList
 import com.netguru.shoppinglistnetguru.app.data.repository.ShoppingListsRepositoryImpl
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ActiveShopListsViewModel(application: Application) : AndroidViewModel(application) {
+@HiltViewModel
+class ActiveShopListsViewModel @Inject constructor(private val repository: ShoppingListsRepositoryImpl) :
+    ViewModel() {
     var shoppingListsLiveData = MutableLiveData<MutableList<ShoppingList>>()
-
-    private var shoppingListsRepository: ShoppingListsRepositoryImpl =
-        ShoppingListsRepositoryImpl(application)
 
     fun addNewShoppingList(newShoppingList: ShoppingList) {
         viewModelScope.launch {
@@ -24,12 +24,12 @@ class ActiveShopListsViewModel(application: Application) : AndroidViewModel(appl
 
     fun getAllShoppingLists(isArchived: Boolean) {
         viewModelScope.launch {
-            val data = shoppingListsRepository.getAllShoppingLists(isArchived)
+            val data = repository.getAllShoppingLists(isArchived)
             shoppingListsLiveData.postValue(data.toMutableList())
         }
     }
 
-    private suspend fun insertShoppingList(shoppingList : ShoppingList): Long {
-        return shoppingListsRepository.insertShoppingList(shoppingList)
+    private suspend fun insertShoppingList(shoppingList: ShoppingList): Long {
+        return repository.insertShoppingList(shoppingList)
     }
 }
