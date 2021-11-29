@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.netguru.shoppinglist.app.data.model.ShoppingList
 import com.netguru.shoppinglist.R
-import com.netguru.shoppinglist.app.ui.shoplistscontainer.ShopListsContainerFragment
+import com.netguru.shoppinglist.app.ui.shoplistscontainer.container.ShopListsContainerFragment
 import com.netguru.shoppinglist.databinding.ActivityMainBinding
 import com.netguru.shoppinglist.app.ui.shoppinglistdetails.ShoppingListDetailsFragment
 import com.netguru.shoppinglist.app.ui.shoplistscontainer.active.ActiveShopListsAdapter

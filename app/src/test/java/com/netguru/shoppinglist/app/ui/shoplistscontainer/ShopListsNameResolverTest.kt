@@ -1,6 +1,7 @@
 package com.netguru.shoppinglist.app.ui.shoplistscontainer
 
 import com.netguru.shoppinglist.R
+import com.netguru.shoppinglist.app.ui.shoplistscontainer.container.ShopListsNameResolver
 import org.junit.Assert.*
 
 import org.junit.Test

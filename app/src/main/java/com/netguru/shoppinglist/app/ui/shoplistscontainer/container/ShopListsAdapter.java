@@ -1,4 +1,4 @@
-package com.netguru.shoppinglist.app.ui.shoplistscontainer;
+package com.netguru.shoppinglist.app.ui.shoplistscontainer.container;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

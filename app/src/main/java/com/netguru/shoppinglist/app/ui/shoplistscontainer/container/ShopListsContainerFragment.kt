@@ -1,4 +1,4 @@
-package com.netguru.shoppinglist.app.ui.shoplistscontainer
+package com.netguru.shoppinglist.app.ui.shoplistscontainer.container
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,11 +12,7 @@ class ShopListsContainerFragment : Fragment() {
 
     private lateinit var binding: FragmentListsContainerBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentListsContainerBinding.inflate(inflater, container, false)
         return binding.root
     }

@@ -14,8 +14,6 @@ class ShoppingListDetailsAdapter(
     private val listener: ShoppingListDetailAdapterListener
 ): RecyclerView.Adapter<ShoppingListDetailsAdapter.ItemViewHolder>() {
 
-    inner class ItemViewHolder(val binding: ItemShoppingListDetailBinding) : RecyclerView.ViewHolder(binding.root)
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemShoppingListDetailBinding.inflate(inflater, parent, false)
@@ -40,6 +38,10 @@ class ShoppingListDetailsAdapter(
                 listener.onProductCheckedChanged(product, position)
             }
         }
+    }
+
+    inner class ItemViewHolder(val binding: ItemShoppingListDetailBinding) : RecyclerView.ViewHolder(binding.root){
+
     }
 
     override fun getItemCount(): Int {

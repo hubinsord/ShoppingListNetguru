@@ -1,4 +1,4 @@
-package com.netguru.shoppinglist.app.ui.shoplistscontainer
+package com.netguru.shoppinglist.app.ui.shoplistscontainer.container
 
 import com.netguru.shoppinglist.R
 
