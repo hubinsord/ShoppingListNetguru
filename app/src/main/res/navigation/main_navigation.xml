@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/shopListsContainerFragment">
+
+    <fragment
+        android:id="@+id/shopListsContainerFragment"
+        android:name="com.netguru.shoppinglist.app.ui.shoplistscontainer.container.ShopListsContainerFragment"
+        android:label="ShopListsContainerFragment" >
+        <action
+            android:id="@+id/action_shopListsContainerFragment_to_shopListDetailsFragment"
+            app:destination="@id/shopListDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shopListDetailsFragment"
+        android:name="com.netguru.shoppinglist.app.ui.shoppinglistdetails.ShopListDetailsFragment"
+        android:label="ShopListDetailsFragment" >
+        <argument
+            android:name="shoppingList"
+            app:argType="com.netguru.shoppinglist.app.data.model.ShoppingList" />
+    </fragment>
+</navigation>

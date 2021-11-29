@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.netguru.shoppinglist.app.data.model.ShoppingItem
 import com.netguru.shoppinglist.app.data.model.ShoppingList
@@ -20,13 +21,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ShoppingListDetailsFragment @Inject constructor(private var shoppingList: ShoppingList) : Fragment(),
-    ShoppingListDetailsAdapter.Companion.ShoppingListDetailAdapterListener {
+class ShopListDetailsFragment @Inject constructor() : Fragment(),
+    ShopListDetailsAdapter.Companion.ShoppingListDetailAdapterListener {
 
     private lateinit var binding: FragmentShoppingListDetailsBinding
-    private lateinit var adapter: ShoppingListDetailsAdapter
+    private lateinit var adapter: ShopListDetailsAdapter
     private lateinit var listener: ShoppingListDetailsFragmentListener
-    private val viewModel: ShoppingListDetailsViewModel by viewModels()
+    private val viewModel: ShopListDetailsViewModel by viewModels()
+    private val args by navArgs<ShopListDetailsFragmentArgs>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -44,7 +46,7 @@ class ShoppingListDetailsFragment @Inject constructor(private var shoppingList: 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.updateShoppingList(shoppingList)
+        viewModel.updateShoppingList(args.shoppingList)
         initObservers()
         initViews()
         initListeners()
@@ -66,7 +68,7 @@ class ShoppingListDetailsFragment @Inject constructor(private var shoppingList: 
     }
 
     private fun initViews() {
-        adapter = ShoppingListDetailsAdapter(shoppingList, this)
+        adapter = ShopListDetailsAdapter(args.shoppingList, this)
         binding.rvItems.adapter = adapter
         binding.rvItems.layoutManager = LinearLayoutManager(requireContext())
     }
@@ -116,10 +118,6 @@ class ShoppingListDetailsFragment @Inject constructor(private var shoppingList: 
     }
 
     companion object {
-
-        @JvmStatic
-        fun newInstance(shoppingList: ShoppingList) = ShoppingListDetailsFragment(shoppingList)
-
         interface ShoppingListDetailsFragmentListener {
             fun onListArchived()
         }

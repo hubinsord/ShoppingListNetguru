@@ -9,10 +9,10 @@ import com.netguru.shoppinglist.app.data.model.ShoppingItem
 import com.netguru.shoppinglist.app.data.model.ShoppingList
 import com.netguru.shoppinglist.databinding.ItemShoppingListDetailBinding
 
-class ShoppingListDetailsAdapter(
+class ShopListDetailsAdapter(
     var shoppingList: ShoppingList,
     private val listener: ShoppingListDetailAdapterListener
-): RecyclerView.Adapter<ShoppingListDetailsAdapter.ItemViewHolder>() {
+): RecyclerView.Adapter<ShopListDetailsAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
